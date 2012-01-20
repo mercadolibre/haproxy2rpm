@@ -99,3 +99,20 @@ No performance testing done so fare. Judging by the results of [jordansissel](ht
 * remove haproxy dependency and make it a more generic rpm recorder. Maybe change the name to log2rpm or log4rpm
 * Automated benchmarks to see how fast it performs and what Ruby version
   might be best suited for a use case
+
+## Params (20/01/2012)
+
+    haproxy2rpm --help
+    Usage: haproxy2rpm [options]
+       -c, --config-file FILE           Path to config file
+       -d, --daemonize                  Daemonize
+       -s, --syslog                     Run syslog server
+       -a, --address HOST               Set host address to listen on
+       -p, --port PORT                  Set port to listen on
+       -n, --app_name APP_NAME          Set application name
+       -e, --environment ENVIRONMENT    Set Newrelic agent env
+       -P, --pid FILE                   specify Pid file
+       -l, --log FILE                   File to redirect output
+       -D, --debug                      verbose logging
+       -v, --version                    Print the version number and exit
+       -h, --help                       Show this message
