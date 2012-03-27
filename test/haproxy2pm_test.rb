@@ -5,7 +5,7 @@ require 'test_helper'
 class Haproxy2RpmTest < Test::Unit::TestCase
   context 'parsing of haproxy files' do
     setup do
-      @result = Haproxy2Rpm::LineParser.new(log_entry)
+      @result = Haproxy2Rpm::LineParser.new(syslog_entry)
     end
 
     should 'parse the Tq (total time in ms spent waiting for client)' do
@@ -49,19 +49,19 @@ class Haproxy2RpmTest < Test::Unit::TestCase
 
   context 'is_error' do
    should 'return false for redirects' do
-      assert !Haproxy2Rpm::LineParser.new(log_entry(:status_code => 302)).is_error?
+      assert !Haproxy2Rpm::LineParser.new(syslog_entry(:status_code => 302)).is_error?
     end
 
     should 'return false for 200 OK' do
-      assert !Haproxy2Rpm::LineParser.new(log_entry(:status_code => 200)).is_error?
+      assert !Haproxy2Rpm::LineParser.new(syslog_entry(:status_code => 200)).is_error?
     end
 
     should 'return false for 404' do
-      assert !Haproxy2Rpm::LineParser.new(log_entry(:status_code => 404)).is_error?
+      assert !Haproxy2Rpm::LineParser.new(syslog_entry(:status_code => 404)).is_error?
     end
 
     should 'return for 500 and above' do
-      assert Haproxy2Rpm::LineParser.new(log_entry(:status_code => 500)).is_error?
+      assert Haproxy2Rpm::LineParser.new(syslog_entry(:status_code => 500)).is_error?
     end
 
   end

@@ -63,7 +63,7 @@ module Haproxy2Rpm
           params['is_error'] = true
           params['error_message'] = "#{request.uri} : Status code #{request.status_code}"
         end
-
+#        record_transaction((request.tt - request.tr) / rpm_number_unit, params)
         record_transaction(request.tr / rpm_number_unit, params)
         Haproxy2Rpm.logger.debug "RECORDING (transaction) #{request.http_path}: #{params.inspect}"
         result = queue_time_stats_engine.record_data_point(request.tw / rpm_number_unit)

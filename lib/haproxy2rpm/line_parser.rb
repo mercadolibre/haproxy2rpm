@@ -26,16 +26,16 @@ module Haproxy2Rpm
     end
 
     def status_code
-      @status_code ||= @parts[5].to_i
+      @status_code ||= @parts[10].to_i
     end
 
     # we need to chop \"
     def http_method
-      @http_method ||= @parts[12][1..-1]
+      @http_method ||= @parts[17][1..-1]
     end
 
     def uri
-      @uri ||= URI.parse(@parts[13])
+      @uri ||= URI.parse(@parts[18])
     end
 
     def http_path
@@ -53,7 +53,7 @@ module Haproxy2Rpm
     private
 
     def response_times
-      @response_times ||= @parts[4].split("/")
+      @response_times ||= @parts[9].split("/")
     end
   end
 end

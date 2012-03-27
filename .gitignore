@@ -3,6 +3,5 @@
 Gemfile.lock
 pkg/*
 log/*
-newrelic.yml
 .rvmrc
 *.rbc
