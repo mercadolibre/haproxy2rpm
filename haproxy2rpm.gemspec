@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/wooga/haproxy2rpm"
   s.summary     = "Sending haproxy logs to new relic rpm"
   s.description = "Sending haproxy logs to new relic rpm"
-  s.add_dependency "newrelic_rpm"
+  s.add_dependency "newrelic_rpm", "3.4.0"
   s.add_dependency "eventmachine-tail"
   s.add_development_dependency "rake"
   s.add_development_dependency "shoulda-context"
